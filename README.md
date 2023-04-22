@@ -1,38 +1,42 @@
-# create-svelte
+# Sveltekit skeleton template with SSR Firebase authentication
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Skeleton Sveltekit app for projects with firebase user authentication and ssr-protected routes.
+Firebase access token (UserId token) is encoded in session cookie.
+Cookie is being updated along with Firebase client access token rotation.
 
-## Creating a project
+Sveltekit server handle hook uses "token" cookie to authenticate user with Firebase admin app.
 
-If you're seeing this, you've probably already done this step. Congrats!
+Main protected route (e.g. /dashboard ) is defined in `hooks.server.ts`.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Getting started
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
 
-## Developing
+- Unpack the project root or clone it with git.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+- Install dependenceis with preferred package manager:
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+npm install
 ```
 
-## Building
-
-To create a production version of your app:
+or 
 
 ```bash
-npm run build
+yarn install
 ```
 
-You can preview the production build with `npm run preview`.
+- Fill in env variables inside `.env` in your project root.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+- Run the app with `npm run dev`
+- Navigate to `/login` route and authenticate with Firebase, then check ssr user data inside `/dashboard` page.
+
+## FAQ
+
+::TODO
+
+## Based on:
+
+[Accessing the Firebase Auth user in SvelteKit server-side by Jeroen Pelgrims](https://jeroenpelgrims.com/access-the-firebase-auth-user-in-sveltekit-server-side/)
+
+
+
