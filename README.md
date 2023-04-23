@@ -4,28 +4,32 @@ Skeleton Sveltekit app for projects with firebase user authentication and ssr-pr
 Firebase access token (UserId token) is encoded in session cookie.
 Cookie is being updated along with Firebase client access token rotation.
 
-Sveltekit server handle hook uses "token" cookie to authenticate user with Firebase admin app.
+### Additional packages
+
+- Includes Tailwind configuration
+
+### Implementation
+
+Sveltekit server `handle` hook uses "token" cookie to authenticate user with Firebase admin app.
 
 Main protected route (e.g. /dashboard ) is defined in `hooks.server.ts`.
 
 ## Getting started
 
 
-- Unpack the project root or clone it with git.
+- Unpack the project zip or pull the [remote](https://github.com/vlntsolo/sveltekit-firebase-ssr-auth.git).
 
 - Install dependenceis with preferred package manager:
 
 ```bash
 npm install
 ```
-
 or 
-
 ```bash
 yarn install
 ```
 
-- Fill in env variables inside `.env` in your project root.
+- Create `.env` in your project root and fill in env variables according to `.env-sample`.
 
 - Run the app with `npm run dev`
 - Navigate to `/login` route and authenticate with Firebase, then check ssr user data inside `/dashboard` page.
