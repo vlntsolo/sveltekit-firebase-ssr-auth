@@ -11,6 +11,10 @@ export const handle: Handle = async ({ event, resolve }) => {
         try {
             const token = event.cookies.get("token");
             const firebaseUser = token ? await auth.verifyIdToken(token) : null;
+            if (!token || !firebaseUser) {
+                event.cookies.set("token", "", { maxAge: -1 });
+                throw redirect(307, "/");
+            }
             //@ts-ignore
             event.locals.user = firebaseUser;
         } catch {
